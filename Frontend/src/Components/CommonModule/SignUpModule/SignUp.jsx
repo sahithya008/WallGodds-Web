@@ -1,42 +1,35 @@
-import { useEffect } from "react";
-import styles from "./SignUp.module.css";
-import { useNavigate } from "react-router-dom";
+import Styles from "./SignUp.module.css";
 
 const SignUp = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    // Set background only for this page
-    document.body.style.backgroundImage = "url('/BACKGROUNDSIGNUP.svg')";
-    document.body.style.backgroundRepeat = "no-repeat";
-    document.body.style.backgroundSize = "cover";
-
-    // Clean up when leaving the page
-    return () => {
-      document.body.style.backgroundImage = "";
-      document.body.style.backgroundRepeat = "";
-      document.body.style.backgroundSize = "";
-    };
-  }, []);
-
-  const handleGoogleSignIn = () => {
-    navigate("/"); // redirect to Home
-  };
-
-  return (
-    <div className={styles.App}>
-      <h2 className={styles.welcome}>Welcome to</h2>
-      <h1 className={styles.brand}>WallGodds</h1>
-      <button className={styles['google-btn']} onClick={handleGoogleSignIn}>
-        <img
-          className={styles['google-icon']}
-          src="https://www.svgrepo.com/show/355037/google.svg"
-          alt="Google"
-        />
-        Continue with Google
-      </button>
-    </div>
-  );
+    return (
+        <>
+            <div className={Styles.container}>
+                <div className={Styles.temp}>
+                    <p className={Styles.first}>
+                        This section is being designed and will be available for
+                        contributors soon
+                    </p>
+                    <p className={Styles.second}>
+                        Keep an eye on{" "}
+                        <a
+                            href="https://github.com/WallGodds/WallGodds-Web/issues"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            Github
+                        </a>{" "}
+                        and{" "}
+                        <a
+                            href="https://discord.gg/kTQ5KWANp8"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            Discord
+                        </a>{" "}
+                        for updates and announcements
+                    </p>
+                </div>
+            </div>
+        </>
+    );
 };
 
 export default SignUp;
