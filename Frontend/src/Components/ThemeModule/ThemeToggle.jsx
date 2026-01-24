@@ -9,7 +9,6 @@ const ThemeToggle = () => {
     });
     const [isAnimating, setIsAnimating] = useState(false);
 
-    // Update images with animation
     const updateImages = (isDarkMode) => {
         document.querySelectorAll("img[data-logo]").forEach((logo) => {
             logo.style.opacity = "0";
@@ -42,7 +41,6 @@ const ThemeToggle = () => {
         });
     };
 
-    // Apply theme
     const applyTheme = (isDarkMode) => {
         document.body.style.backgroundImage = isDarkMode
             ? "url('/Dark_mode_bg.webp')"
@@ -51,7 +49,6 @@ const ThemeToggle = () => {
         document.body.style.color = isDarkMode ? "white" : "black";
     };
 
-    // Initial theme setup (runs once on mount)
     useEffect(() => {
         const savedTheme = localStorage.getItem("theme") === "dark";
         applyTheme(savedTheme);
