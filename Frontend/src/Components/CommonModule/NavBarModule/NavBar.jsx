@@ -47,6 +47,10 @@ const NavBar = () => {
             </div>
             <div className={Style.actions}>
                 <div className={Style.search}>
+                    <input
+                        type="text"
+                        placeholder="Search"
+                    />
                     <button>
                         <img src={Search} alt="Search" data-search />
                     </button>
