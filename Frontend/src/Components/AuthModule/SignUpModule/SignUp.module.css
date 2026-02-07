@@ -14,7 +14,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+   
+    justify-content: center;
     /* Full viewport height with scrolling enabled */
     height: 100vh;
     overflow-y: auto;
@@ -71,14 +72,17 @@
     /* EXACT Dimensions from Figma */
     width: 541px;
     height: 555px;
+    overflow: hidden;
     border-radius: 14.83px;
-    
-    padding: 3.5rem 3rem;
+     padding: 4rem 3rem;
     box-sizing: border-box;
     
     background-color: rgba(255, 255, 255, 0.54);
     backdrop-filter: blur(12px); 
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
     /* Card Border: 1px dashed #7e93d6 with rounded dashes (6, 6) */
     background-image: url("data:image/svg+xml,%3csvg width='541' height='555' viewBox='0 0 541 555' xmlns='http://www.w3.org/2000/svg'%3e%3crect x='0.5' y='0.5' width='540' height='554' rx='14.83' ry='14.83' fill='none' stroke='%237e93d6' stroke-width='1' stroke-dasharray='6%2c 6' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
     
@@ -133,7 +137,7 @@
     justify-content: center; 
     align-items: center;
     width: 100%;
-    margin: 1.5rem 0;
+    margin: 0.75rem 0;
 }
 
 .dividerText {
@@ -141,6 +145,7 @@
     font-size: 0.75rem; 
     font-weight: 300;
 }
+
 
 /* --- Main Big Logo Image --- */
 .mainLogoImage {
@@ -150,9 +155,140 @@
     object-fit: contain;
 }
 
+/* .card {
+    width: 500px;
+    padding: 25px;
+    border-radius: 18px;
+    background: white;
+    backdrop-filter: blur(12px);
+    border: 2px dashed #8aa3ff;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+} */
+.field {
+  position: relative;
+}
+.requiredp {
+  position: absolute;
+  left: 80px;
+  top: 49%;
+  transform: translateY(-50%);
+  color: #ff917e;
+}
+.requiredcp {
+  position: absolute;
+  left: 140px;
+  top: 49%;
+  transform: translateY(-50%);
+  color: #ff917e;
+}
+.requiredus{
+    position: absolute;
+  left: 86px;
+  top: 49%;
+  transform: translateY(-50%);
+  color: #ff917e;
+}
+.requiredem{
+    position: absolute;
+  left: 50px;
+  top: 49%;
+  transform: translateY(-50%);
+  color: #ff917e;
+}
+.requirednm{
+     position: absolute;
+  left: 85px;
+  top: 49%;
+  transform: translateY(-50%);
+  color: #ff917e;
+}
+
+
+.form {
+    width: 449px;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.row {
+    display: flex;
+    gap: 12px;
+}
+.email,.username{
+    width: 100%;
+}
+.passwordRow{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+input {
+    width: 219px;
+    height: 47px;
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 7px;
+    background: #E2E8FF;
+    border: 2px solid transparent;
+    outline: none;
+    transition: border 0.2s ease;
+}
+input,
+input:focus,
+input:active {
+  background: #E2E8FF;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #E2E8FF inset !important;
+  box-shadow: 0 0 0 1000px #E2E8FF inset !important;
+  -webkit-text-fill-color: #000 !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+.errorInput{
+    border: 2px solid #FF917E
+}
+
+input:not(:placeholder-shown) + .requiredp,
+input:not(:placeholder-shown) + .requiredcp,
+input:not(:placeholder-shown) + .requiredus,
+input:not(:placeholder-shown) + .requiredem,
+input:not(:placeholder-shown) + .requirednm {
+  display: none;
+}
+.error{
+     position: absolute;
+  top: -36px;            /* moves it above input */
+  left: 0;
+  background-color: #ff917e;
+  color: #fff;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.btn{
+    background-color: #5F71FE;
+    border-radius: 10px;
+    height: 43px;
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+    border: 0;
+}
+
+
 /* --- Footer --- */
 .footer {
-    margin-top: 2rem;
+    margin-top: 1rem;
     color: #666;
     font-size: 0.9rem;
     font-weight: 300;
