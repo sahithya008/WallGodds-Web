@@ -1,9 +1,14 @@
 import { useRef, useState, useEffect } from "react";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+// LIGHT-ICONS
+import MobileIcon_light from "./GallaryAssets/mobile-light.svg";
+import TabletIcon_light from "./GallaryAssets/tablet-light.svg";
+import LaptopIcon_light from "./GallaryAssets/laptop-light.svg";
+// DARK-ICONS
+import MobileIcon_dark from "./GallaryAssets/mobile-dark.svg";
+import TabletIcon_dark from "./GallaryAssets/tablet-dark.svg";
+import LaptopIcon_dark from "./GallaryAssets/laptop-dark.svg";
 
-import MobileIcon from "./GallaryAssets/mobile.svg";
-import TabletIcon from "./GallaryAssets/tablet.svg";
-import LaptopIcon from "./GallaryAssets/laptop.svg";
 
 import Abstract from "./categorieItems/Abstract.svg";
 import Nature from "./categorieItems/Nature.svg";
@@ -27,11 +32,11 @@ import Footer from "../CommonModule/FooterModule/Footer";
 
 import Styles from "./Gallery.module.css";
 
-const devices = [
-  { id: "tablet", icon: TabletIcon, route: "/gallery/tablet" },
-  { id: "desktop", icon: LaptopIcon, route: "/gallery/desktop" },
-  { id: "mobile", icon: MobileIcon, route: "/gallery/mobile" },
-];
+// const devices = [
+//   { id: "tablet", icon: TabletIcon, route: "/gallery/tablet" },
+//   { id: "desktop", icon: LaptopIcon, route: "/gallery/desktop" },
+//   { id: "mobile", icon: MobileIcon, route: "/gallery/mobile" },
+// ];
 
 const categories = [
   { title: "Abstract", image: Abstract },
@@ -52,6 +57,35 @@ const Gallery = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const activeDevice = location.pathname.split("/").pop();
+
+  const [isDark,setIsDark]=useState(
+    document.body.classList.contains("dark-theme")
+  );
+  useEffect(() => {
+    const observer= new MutationObserver(() => {
+      setIsDark(document.body.classList.contains("dark-theme"));
+    });
+    observer.observe(document.body,{attributes:true});
+    return () => observer.disconnect();
+  },[]);
+
+  const devices = [
+    {
+      id: "tablet",
+      icon: isDark ? TabletIcon_dark : TabletIcon_light,
+      route: "/gallery/tablet",
+    },
+    {
+      id: "desktop",
+      icon: isDark ? LaptopIcon_dark : LaptopIcon_light,
+      route: "/gallery/desktop",
+    },
+    {
+      id: "mobile",
+      icon: isDark ? MobileIcon_dark : MobileIcon_light,
+      route: "/gallery/mobile",
+    },
+  ];
 
   useEffect(() => {
     if (location.pathname === "/gallery" || location.pathname === "/gallery/") {
